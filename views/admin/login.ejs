@@ -1,0 +1,99 @@
+<%-include('../layouts/header.ejs') %>
+
+<% 
+
+if(typeof message !==  'undefined'){
+%>
+<h3><% message %></h3>
+<%
+}
+
+
+
+%>
+
+<section class="vh-100"   >
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 text-black">
+  
+          <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+  
+            <form  action="" method="post" style="width: 23rem;" onsubmit="return validateForm()">
+  
+  <h1 class="fw-normal mb-3 pb-3 fw-bold" style="letter-spacing: 1px;">MarketPlaceX</h1>
+  
+  
+              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Welcome Back Admin</h3>
+  
+              <div class="form-outline mb-4">
+                <input type="email" id="form2Example18" class="form-control form-control-lg" placeholder="Email ID"name="email" />
+               <label class="form-label" for="form2Example18" >Email address</label>
+              </div>
+  
+              <div class="form-outline mb-4">
+                <input type="password" id="form2Example28" class="form-control form-control-lg" placeholder="Password" name="password" />
+                <label class="form-label" for="form2Example28">Password</label> 
+              </div>
+  
+              <div class="pt-1 mb-4">
+                <button class="btn btn-info btn-lg btn-block" style="color: white;background-color: grey;
+                border-color: white;" type="submit">Sign in</button>
+              <% if(typeof message!=='undefined' ){ %>
+                <P style="color: rgb(239, 15, 15);">
+                    <%= message %>
+                </P>
+                <% } %>
+              </div>
+  
+            </form>
+  
+          </div>
+  
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <script>
+    function validateForm() {
+      let inputs = document.getElementsByTagName("input")
+
+      for(let i=0; i< inputs.length; i++){
+        if(inputs[i].value == ""){
+          alert("All fields are required!!")
+          return false;
+        }
+      }
+      return true;
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+<!-- 
+<form action="" method="post" onsubmit="return validateForm()">
+    <input type="email" name="email" placeholder="email" ><br><br>
+    <input type="password" name="password" placeholder="password" ><br><br>
+    <input type="submit" value="Login">
+
+</form> -->
+
+<% if(typeof message!=='undefined' ){ %>
+    <P style="color: rgb(239, 15, 15);">
+        <%= message %>
+    </P>
+    <% } %>
+
+
+
+<%-include('../layouts/footer.ejs') %>
